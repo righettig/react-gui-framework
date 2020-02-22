@@ -1,13 +1,17 @@
 import React from 'react';
 import _ from "lodash";
 import RGL, { WidthProvider } from "react-grid-layout";
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css';
+
+import Grid from '../Grid/Grid';
 
 const ReactGridLayout = WidthProvider(RGL);
 
 export default class BasicLayout extends React.PureComponent {
   static defaultProps = {
     className: "layout",
-    items: 20,
+    items: 4,//20,
     rowHeight: 30,
     onLayoutChange: function() {},
     cols: 12
@@ -24,7 +28,8 @@ export default class BasicLayout extends React.PureComponent {
     return _.map(_.range(this.props.items), function(i) {
       return (
         <div key={i}>
-          <span className="text">{i}</span>
+          {/* <span className="text">{i}</span> */}
+          <Grid></Grid>
         </div>
       );
     });
