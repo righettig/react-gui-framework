@@ -23,16 +23,21 @@ class Grid extends Component {
 
   render() {
     return (
-      <div
-        className="ag-theme-balham"
-        style={{
-          height: '100%'
-        }}
-      >
-        <AgGridReact
-          columnDefs={this.state.columnDefs}
-          rowData={this.state.rowData}>
-        </AgGridReact>
+      <div>
+        <div className="view-header">
+          {this.props.options.displayName}
+        </div>
+        <div
+          className="ag-theme-balham"
+          style={{
+            height: 230
+          }}
+        >
+          <AgGridReact
+            columnDefs={this.state.columnDefs}
+            rowData={this.state.rowData}>
+          </AgGridReact>
+        </div>
       </div>
     );
   }

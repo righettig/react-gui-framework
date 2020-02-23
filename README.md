@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### TODO
+
+- simple nav (entry for each module)
+- clicking on the menu item changes the current module being displayed
+- fake data (create an observable that generates random data)

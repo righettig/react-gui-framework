@@ -11,25 +11,22 @@ const ReactGridLayout = WidthProvider(RGL);
 export default class BasicLayout extends React.PureComponent {
   static defaultProps = {
     className: "layout",
-    items: 4,//20,
     rowHeight: 30,
-    onLayoutChange: function() {},
+    onLayoutChange: function () { },
     cols: 12
   };
 
   constructor(props) {
     super(props);
-
     const layout = this.generateLayout();
     this.state = { layout };
   }
 
   generateDOM() {
-    return _.map(_.range(this.props.items), function(i) {
+    return _.map(_.range(this.props.views.length), (i) => {
       return (
         <div key={i}>
-          {/* <span className="text">{i}</span> */}
-          <Grid></Grid>
+          <Grid options={this.props.views[i]}></Grid>
         </div>
       );
     });
@@ -37,13 +34,13 @@ export default class BasicLayout extends React.PureComponent {
 
   generateLayout() {
     const p = this.props;
-    return _.map(new Array(p.items), function(item, i) {
+    return _.map(new Array(p.items), (item, i) => {
       const y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
       return {
         x: (i * 2) % 12,
         y: Math.floor(i / 6) * y,
         w: 2,
-        h: y,
+        h: 7,
         i: i.toString()
       };
     });
