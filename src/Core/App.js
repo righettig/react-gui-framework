@@ -4,7 +4,7 @@ import './App.css';
 import Nav from './Nav/Nav';
 import BasicLayout from './Layout/Layout';
 
-import modules from './main';
+import modules from '../App/main';
 
 class App extends Component {
   render() {
