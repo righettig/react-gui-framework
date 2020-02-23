@@ -7,12 +7,22 @@ import 'ag-grid-enterprise';
 class Grid extends Component {
   constructor(props) {
     super(props);
+
+    if (!props.options.fields) { // NB: default values
+      props.options.fields = [
+        { name: "Make",  fieldName: "make"  },
+        { name: "Model", fieldName: "model" },
+        { name: "Price", fieldName: "price" }
+      ]
+    }
+
     this.state = {
-      columnDefs: [
-        { headerName: "Make", field: "make" },
-        { headerName: "Model", field: "model" },
-        { headerName: "Price", field: "price" }
-      ],
+      columnDefs: props.options.fields.map(f => {
+        return { 
+          headerName: f.name, 
+          field: f.fieldName
+        }
+      }),
       rowData: [
         { make: "Toyota", model: "Celica", price: 35000 },
         { make: "Ford", model: "Mondeo", price: 32000 },

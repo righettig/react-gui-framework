@@ -1,6 +1,11 @@
 let allTrades = {
 	displayName: "Trades",
-	dataSource: "ALL_TRADES"
+  dataSource: "ALL_TRADES",
+  fields: [
+    //{ name: "Make",  fieldName: "make"  },
+    // { name: "Model", fieldName: "model" },
+    { name: "Price", fieldName: "price" }
+  ]
 }
 
 let allTradesAudit = {
