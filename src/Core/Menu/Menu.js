@@ -3,7 +3,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 export default function Menu(props) {
   return (
@@ -19,26 +19,20 @@ export default function Menu(props) {
         </Nav>
       </Navbar>
       <Switch>
-        <Route path="/orders">
+        { /* default route */ }
+        <Route path='/'>
           <Orders />
         </Route>
-        <Route path="/trades">
-          <Trades />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
+        {
+          props.modules.map((module) =>
+            <Route path={'/' + module.displayName}>
+              <Orders />
+            </Route>
+          )
+        }
       </Switch>
     </Router>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Trades() {
-  return <h2>Trades</h2>;
 }
 
 function Orders() {
